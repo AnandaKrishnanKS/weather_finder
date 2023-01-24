@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ---font awsome link--- -->
+    <script src="https://kit.fontawesome.com/e2d68d1d51.js" crossorigin="anonymous"></script>
+
+    <!-- ---bootstrap  link--- -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="./style.css">
+    <title>weather</title>
+
+</head>
+
+<body>
+    <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
+        <source src="./video/bgvideo.mp4" type="video/mp4">
+    </video>
+    <section>
+        <div class=" ms-auto me-auto w-50 text-center bg-light p-5 mt-5 rounded-4">
+            <h3 class="m-5 pb-3">Weather forecast</h3>
+            <div class="container mb-5">
+                <div class="row">
+                    <input id="placename" type="text" placeholder="search your place here"
+                        class="col-7 form-control w-50 rounded-4 ms-auto me-1">
+                    <button onclick="getdata()" type="button"
+                        class="btn btn-outline-primary col-2 rounded-4 ms-2 me-auto">search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div id="result" class=" ms-auto me-auto w-50 text-center">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
+<!-- {
+    "coord":{"lon":76.3428,"lat":10.0166},
+    "weather":[{"id":701,"main":"Mist","description":"mist","icon":"50d"}],
+    "base":"stations",
+    "main":{"temp":301.07,"feels_like":304.76,"temp_min":301.07,"temp_max":301.07,"pressure":1008,"humidity":78},
+    "visibility":3000,
+    "wind":{"speed":2.57,"deg":310},
+    "clouds":{"all":75},
+    "dt":1674556131,
+    "sys":{"type":1,"id":9211,"country":"IN","sunrise":1674523022,"sunset":1674564947},
+    "timezone":19800,
+    "id":1267254,
+    "name":"Kakkanad",
+    "cod":200
+} -->
