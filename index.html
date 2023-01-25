@@ -25,36 +25,40 @@
     <video id="background-video" autoplay loop muted poster="https://assets.codepen.io/6093409/river.jpg">
         <source src="./video/bgvideo.mp4" type="video/mp4">
     </video>
-    <section class="ms-auto me-auto">
-        <div class=" ms-auto me-auto w-75  bg-light bg-opacity-25 p-5 mt-5 rounded-4">
+    <section class="container mainsection ms-auto me-auto ">
+        <div class=" bg-light bg-opacity-25 p-5 pb-3 mt-5 rounded-4">
             <h1 class="mb-3 mb-4  pb-3 text-center text-white">Weather Today</h1>
-            <div class="container mb-3">
-                <div class="row">
+            <div class=" mb-3 ">
+                <div class="row srchrow ">
+                    <div class="col-lg-2 col-md-1"></div>
                     <input id="placename" type="text" placeholder="enter your place here"
-                        class="col-7 col-md-12 form-control w-50 rounded-4 ms-auto me-1 text-center">
+                        class="col form-control rounded-4 text-center m-2">
                     <button onclick="getdata()" type="button"
-                        class="btn btn-outline-light col-2 col-md-12 w-25 rounded-4 ms-2 me-auto">search</button>
+                        class="col-lg-2 col-md-2 srchbtn btn btn-outline-light rounded-4 m-2 ">search</button>
+                    <div class="col-lg-2 col-md-1"></div>
                 </div>
                 <section>
                     <div class="container">
                         <div class="row">
-                            <div id="result" class=" d-flex  mt-5 bg-info bg-opacity-25 p-5 rounded-4">
+                            <div id="result" class=" bg-info bg-opacity-25  rounded-4">
                                 <div class="wlcmpg">
-                                    <h2 class="mb-3 mb-4  pb-3 text-center text-white">
-                                        <p class="text-start">Hello my friend,</p> <br>
+                                    <h2 class="helotxt mb-3 mb-4 text-center text-white">
+                                        <br>
                                         Sunshine is delicious, rain is
                                         refreshing, wind braces us up, snow is exhilarating; there is really no such
                                         thing as bad weather, only different kinds of good weather. <br><br>
-                                        <p class="text-end fs-5">~unknown</p>
+                                        <p class=" authertxt text-end">~unknown</p>
                                     </h2>
                                 </div>
+
+
+
                             </div>
                         </div>
                     </div>
+                </section>
             </div>
-    </section>
-    </div>
-    </div>
+        </div>
     </section>
 
 

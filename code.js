@@ -13,9 +13,9 @@ function displaydata(placeDeails) {
     sunSet = placeDeails.sys.sunset
     weatherType = placeDeails.weather[0].description
     weatherIcon = placeDeails.weather[0].icon
-    normTemp = Math.round((placeDeails.main.temp - 32) * 5 / 9)
-    minTemp = Math.round((placeDeails.main.temp_min - 32) * 5 / 9)
-    maxTemp = Math.round((placeDeails.main.temp_max - 32) * 5 / 9)
+    normTemp = Math.round(placeDeails.main.temp - 273.15)
+    minTemp = Math.round(placeDeails.main.temp_min - 273.15)
+    maxTemp = Math.round(placeDeails.main.temp_max - 273.15)
     humidity = placeDeails.main.humidity
     pressure = placeDeails.main.pressure
     windSpeed = placeDeails.wind.speed
@@ -25,51 +25,71 @@ function displaydata(placeDeails) {
                  <style>.wlcmpg{
                     opacity: 0;
                 }
-                 }</style>
-                 <div class="col-md-12 col-lg-5  flex-fill ">
-                 <p class="text-white ps-1"><strong>today's weather at</strong> </p>
-                 <h3 class="text-center text-primary mb-5"
-                     style="font-size: 3.5rem; font-weight: 900;">${placeName}
-                 </h3>
-                 <div class="d-flex flex-fill justify-content-around  text-white">
-                     <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 mb-4">Id : ${placeId}</p>
-                     <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 mb-4">location- 
-                         lon : ${cordLon} ,
-                         lat : ${cordLat}
+                 </style>
+                 <div class=" col flex-fill ">
+                 <p class="txt1 text-white"><strong>today's weather at</strong> </p>
+                 <p class="txt2 text-light mb-5">${placeName}</p>
+                 <div class=" plcid flex-fill justify-content-around  text-white">
+                     <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 mb-4">Id : ${placeId}
                      </p>
-                     <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 mb-4">Code : ${placeCode}</p>
+                     <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 mb-4">Location
+                         :${cordLon}&#176;,${cordLat}&#176;</p>
+                     <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 mb-4">Code :
+                         ${placeCode}</p>
                  </div>
-                 <div class="d-flex flex-fill justify-content-evenly  text-white">
+                 <div class="snris flex-fill justify-content-evenly  text-white">
                      <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 ms-5 mb-4">
                          Sunrise : ${sunRise}
                      </p>
-                     <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 me-5 mb-4">Sunset : ${sunSet}
-                     </p>
+                     <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4 me-5 mb-4">Sunset :
+                         ${sunSet}</p>
                  </div>
-                 <div class="d-flex flex-fill justify-content-evenly  text-white">
+                 <div class="winddata flex-fill justify-content-evenly  text-white">
                      <p class="bg-secondary bg-opacity-25 ps-3 pe-3 rounded-4">Wind- speed :
-                         ${windSpeed} and
-                         Deg : ${windDirection}
+                         ${windSpeed}kmph and
+                         Deg : ${windDirection}&#176;</p>
+
+                 </div>
+             </div>
+             <div class="temptart col flex-fill text-white ">
+                 <div>
+                     <p class=" temptxt p-0 m-0  ps-5"><strong>Temprature :</strong>&#127777;</p>
+                 </div>
+                 <div>
+                     <h1 class=" degsec text-center ">${normTemp}&#8451;</h1>
+                 </div>
+                 <div class="humpresur temminmax">
+                     <p class=" flex-fill ps-5 ">Min :<strong> ${minTemp} &#8451;</strong></p>
+                     <div >
+                     <p class="text-center ms-auto me-auto mb-0 mt-0 pb-0 pt-0"><img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="..."></p>
+                     <p class="text-center ms-auto me-auto  mb-0 mt-0 pb-3 pt-0">${weatherType}</p>
+                     </div>
+                     <p class=" flex-fill text-end ">Max :<strong> ${maxTemp} &#8451;</strong></p>
+                 </div>
+                 <div class="humpresur text-center mt-2">
+                     <p class=" flex-fill bg-success bg-opacity-25 ms-5 me-4 p-3 pe-3 rounded-4">
+                      Humidity : ${humidity}&#37;
+                     </p>
+                     <p class="flex-fill bg-success bg-opacity-25 p-3  me-0 rounded-4">Air pressure :
+                         ${pressure}hPa
                      </p>
 
                  </div>
              </div>
-             <div class=" col-md-12 col-lg-3 flex-fill text-white">
-                 <p class=" p-0 m-0  ps-5"><strong>Temprature</strong> - avg:</p>
-                 <h1 class=" text-end me-4 " style="font-size: 6rem;">${normTemp}&#8451;
-                 </h1>
-                 <div class="d-flex">
-                     <p class=" flex-fill ps-5 ">Min :<strong> ${minTemp} &#8451;</strong>
-                     </p>
-                     <p class=" flex-fill text-end ">Max :<strong> ${maxTemp} &#8451;</strong> </p>
+
+             <div class="mobview ">
+             <p class="text-center ms-auto me-auto mb-0 mt-0 pb-0 pt-0"><img src="http://openweathermap.org/img/w/${weatherIcon}.png" alt="..."></p>
+                 <div class="bg-success bg-opacity-25 text-light text-center rounded-4 ">
+                     <p>Type : ${weatherType}</p>
                  </div>
-                 <div class="d-flex text-center">
-                     <p class=" flex-fill bg-success bg-opacity-25 ms-5 me-4 p-3 pe-3 rounded-4">
-                         Humidity : ${humidity}
-                     </p>
-                     <p class="flex-fill bg-success bg-opacity-25 p-3  me-0 rounded-4">Air pressure :
-                         ${pressure}
-                     </p>
+                 <div class="bg-success bg-opacity-25 text-light text-center rounded-4 ">
+                     <p>Humidity : ${humidity}&#37;</p>
+                 </div>
+                 <div class="bg-success bg-opacity-25 text-light text-center rounded-4 ">
+                     <p>Wind : ${windSpeed}kmph</p>
+                 </div>
+                 <div class="bg-success bg-opacity-25 text-light text-center rounded-4 ">
+                     <p>Pressure : ${pressure}hPa</p>
                  </div>
              </div>
             `
